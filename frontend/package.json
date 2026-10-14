@@ -9,7 +9,7 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -r https://github.com/lokeshpuma/gigaops.git"
   },
   "dependencies": {
     "lucide-react": "^1.56.0",
