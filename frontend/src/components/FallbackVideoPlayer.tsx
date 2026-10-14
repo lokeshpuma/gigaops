@@ -12,6 +12,11 @@ export const FallbackVideoPlayer: React.FC<FallbackVideoPlayerProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Normalize path for GitHub Pages subpath deployment (e.g. /gigaops/)
+  const resolvedSrc = videoSrc.startsWith("http")
+    ? videoSrc
+    : `${import.meta.env.BASE_URL}${videoSrc.replace(/^\/+/, "")}`;
+
   return (
     <div style={{ marginBottom: "28px" }}>
       <div className="fallback-banner">
@@ -70,7 +75,7 @@ export const FallbackVideoPlayer: React.FC<FallbackVideoPlayerProps> = ({
             <span style={{ color: "var(--accent-pass)" }}>● 1080P ARCHIVED RUN</span>
           </div>
           <video
-            src={videoSrc}
+            src={resolvedSrc}
             controls
             autoPlay
             loop

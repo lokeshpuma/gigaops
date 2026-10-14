@@ -29,7 +29,9 @@ const DEFAULT_SAMPLES: SampleImage[] = [
 export const VisionQC: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"gallery" | "upload" | "webcam">("gallery");
   const [selectedSample, setSelectedSample] = useState<string>("sample-pass-1");
-  const [previewImage, setPreviewImage] = useState<string>("/samples/sample-pass-1.jpg");
+  const [previewImage, setPreviewImage] = useState<string>(
+    `${import.meta.env.BASE_URL}samples/sample-pass-1.jpg`
+  );
   const [analyzing, setAnalyzing] = useState(false);
   const [result, setResult] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -79,7 +81,7 @@ export const VisionQC: React.FC = () => {
   // Gallery click handler
   const handleSelectSample = async (sampleId: string) => {
     setSelectedSample(sampleId);
-    const imgUrl = `/samples/${sampleId}.jpg`;
+    const imgUrl = `${import.meta.env.BASE_URL}samples/${sampleId}.jpg`;
     setPreviewImage(imgUrl);
     setResult(null);
 
