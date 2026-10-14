@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+backend/venv/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.DS_Store
+
+# Temporary files
+.env.local
+.env.*.local
+*.log

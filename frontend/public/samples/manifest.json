@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sample-pass-1",
+    "label": "Pristine 4680 Foil A",
+    "defect_type": "pristine_pass",
+    "expected": "pass"
+  },
+  {
+    "id": "sample-pass-2",
+    "label": "Pristine Laser Weld",
+    "defect_type": "pristine_pass",
+    "expected": "pass"
+  },
+  {
+    "id": "sample-scratch-1",
+    "label": "Electrode Surface Scratch",
+    "defect_type": "defect_scratch",
+    "expected": "reject"
+  },
+  {
+    "id": "sample-weld-1",
+    "label": "Tab Laser Weld Spatter",
+    "defect_type": "defect_weld_spatter",
+    "expected": "reject"
+  },
+  {
+    "id": "sample-pinhole-1",
+    "label": "Calendering Pinhole Void",
+    "defect_type": "defect_pinhole",
+    "expected": "reject"
+  },
+  {
+    "id": "sample-scratch-2",
+    "label": "Deep Casing Score Mark",
+    "defect_type": "defect_scratch",
+    "expected": "reject"
+  }
+]
