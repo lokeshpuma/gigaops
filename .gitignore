@@ -14,3 +14,7 @@ build/
 .env.local
 .env.*.local
 *.log
+
+# PRD Documents
+GigaOps_PRD.md
+PRD.md
