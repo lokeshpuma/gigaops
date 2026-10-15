@@ -1,37 +1,10 @@
 import React from "react";
 import {
-  Users,
-  FileText,
   BookOpen,
-  AlertTriangle,
-  ExternalLink,
-  Code
+  AlertTriangle
 } from "lucide-react";
 
 export const About: React.FC = () => {
-  const teamMembers = [
-    {
-      name: "Lokesh M (Lead)",
-      role: "Systems Architecture, Frontend & Deployment Lead",
-      details: "Built the unified React + TypeScript interface, A* client-side intralogistics engine, and deployment infrastructure.",
-    },
-    {
-      name: "Team Member 2",
-      role: "Simulation & Digital Twin Specialist (GigaTwin)",
-      details: "Modeled SimPy discrete-event cell line, bottleneck detection heuristics, and OEE parametric calculations.",
-    },
-    {
-      name: "Team Member 3",
-      role: "Computer Vision & Deep Learning Specialist (VisionQC)",
-      details: "Trained ConvNet defect classifier, dataset curation, and ONNX Runtime CPU inference export pipeline.",
-    },
-    {
-      name: "Team Member 4",
-      role: "Manufacturing Domain & Technical Documentation Lead",
-      details: "Researched Tesla Gigafactory battery cell literature, ISA-95 mapping, and written project report compilation.",
-    },
-  ];
-
   const references = [
     {
       id: 1,
@@ -70,7 +43,6 @@ export const About: React.FC = () => {
       {/* Header */}
       <div style={{ marginBottom: "36px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
-          <span className="brand-badge">GROUP G9 // 22RI751</span>
           <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--text-muted)" }}>
             AUTONOMOUS MANUFACTURING SYSTEMS
           </span>
@@ -79,97 +51,12 @@ export const About: React.FC = () => {
           About GigaOps & Technical Report
         </h1>
         <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem", maxWidth: "900px" }}>
-          An educational cyber-physical manufacturing suite developed for the 22RI751 course case study,
-          modeling Tesla Gigafactory battery production lines, automated optical inspection, and intralogistics.
+          An educational cyber-physical manufacturing suite modeling Tesla Gigafactory battery production lines,
+          automated optical inspection, and intralogistics.
         </p>
       </div>
 
-      {/* Team Members Grid */}
-      <section style={{ marginBottom: "48px" }}>
-        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1.6rem", fontWeight: 700, marginBottom: "20px" }}>
-          Project Team (Group G9)
-        </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
-          {teamMembers.map((member, idx) => (
-            <div
-              key={idx}
-              style={{
-                background: "var(--bg-card)",
-                border: "1px solid var(--border-subtle)",
-                borderRadius: "var(--radius-md)",
-                padding: "24px",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-                <div
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    background: "var(--bg-secondary)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--cyber-cyan)",
-                    border: "1px solid var(--border-subtle)",
-                  }}
-                >
-                  <Users size={18} />
-                </div>
-                <div>
-                  <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--text-white)" }}>
-                    {member.name}
-                  </div>
-                  <div style={{ fontSize: "0.82rem", color: "var(--cyber-cyan)", fontFamily: "var(--font-mono)" }}>
-                    {member.role}
-                  </div>
-                </div>
-              </div>
-              <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", lineHeight: 1.5 }}>
-                {member.details}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Project Deliverables & Repository Links */}
-      <section
-        style={{
-          background: "var(--bg-card)",
-          border: "1px solid var(--border-subtle)",
-          borderRadius: "var(--radius-lg)",
-          padding: "32px",
-          marginBottom: "48px",
-        }}
-      >
-        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1.6rem", fontWeight: 700, marginBottom: "16px" }}>
-          Project Assets & Documentation
-        </h2>
-        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-          <a
-            href="https://github.com/lokeshpuma/URL-Status-Checker"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            <Code size={18} />
-            <span>GitHub Repository</span>
-            <ExternalLink size={14} />
-          </a>
-          <a
-            href="#report"
-            className="btn-secondary"
-            onClick={(e) => {
-              e.preventDefault();
-              alert("Technical Report PDF is included in the project deliverables directory under /docs/GigaOps_Final_Report.pdf");
-            }}
-          >
-            <FileText size={18} />
-            <span>Download Written Report (PDF)</span>
-          </a>
-        </div>
-      </section>
 
       {/* Limitations & Educational Disclaimer (PRD §4.4 & §6 requirement) */}
       <section
@@ -190,7 +77,7 @@ export const About: React.FC = () => {
         <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "12px" }}>
           <strong>Educational Disclaimer:</strong> The models presented in GigaOps (GigaTwin SimPy line,
           VisionQC classifier, AGV Pathfinder) are simplified educational demonstrations developed strictly
-          for academic instruction and evaluation in Course 22RI751. They are <em>not</em> production manufacturing software
+          for academic instruction and evaluation. They are <em>not</em> production manufacturing software
           and are not validated against real proprietary Tesla factory hardware or confidential telemetry.
         </p>
         <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.6 }}>

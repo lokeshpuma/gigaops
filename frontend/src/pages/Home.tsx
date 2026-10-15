@@ -54,7 +54,7 @@ export const Home: React.FC = () => {
       <section className="hero-section">
         <div className="hero-pill">
           <Zap size={14} style={{ color: "var(--tesla-red)" }} />
-          <span>COURSE 22RI751 // AUTONOMOUS MANUFACTURING SYSTEMS</span>
+          <span>AUTONOMOUS MANUFACTURING SYSTEMS</span>
         </div>
 
         <h1 className="hero-title">

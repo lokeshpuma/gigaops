@@ -1,6 +1,7 @@
 import React from "react";
 import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
+import { Logo } from "./components/Logo";
 import { Home } from "./pages/Home";
 import { GigaTwin } from "./pages/GigaTwin";
 import { VisionQC } from "./pages/VisionQC";
@@ -30,14 +31,14 @@ export const App: React.FC = () => {
         <footer className="app-footer">
           <div className="footer-inner">
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
+                <Logo size={24} />
                 <span style={{ fontWeight: 800, fontSize: "1.1rem", color: "var(--text-white)", letterSpacing: "-0.02em" }}>
                   GIGAOPS
                 </span>
-                <span className="brand-badge">TESLA CASE STUDY</span>
               </div>
               <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
-                Group G9 — Course 22RI751: Autonomous Manufacturing Systems
+                Autonomous Manufacturing Systems
               </div>
             </div>
 

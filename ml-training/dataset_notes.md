@@ -2,7 +2,6 @@
 
 **Project:** GigaOps — Tesla Gigafactory Autonomous Manufacturing Systems Demo Suite  
 **Module:** VisionQC — Automated Optical Inspection (AOI) Defect Detection  
-**Author:** Group G9, 22RI751  
 
 ---
 

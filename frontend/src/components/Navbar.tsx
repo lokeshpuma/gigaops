@@ -5,13 +5,28 @@ import {
   Eye,
   Navigation,
   Info,
-  Layers
+  Layers,
+  Sun,
+  Moon
 } from "lucide-react";
 import { API_ENDPOINTS } from "../config";
+import { Logo } from "./Logo";
 
 export const Navbar: React.FC = () => {
   const location = useLocation();
   const [backendOnline, setBackendOnline] = useState<boolean | null>(null);
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    return (localStorage.getItem("gigaops-theme") as "dark" | "light") || "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("gigaops-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -45,12 +60,12 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <header style={{ borderBottom: "1px solid var(--border-subtle)", background: "rgba(8, 9, 11, 0.9)", backdropFilter: "blur(12px)" }}>
+    <header className="app-header">
       <nav className="navbar">
         <Link to="/" className="nav-brand">
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <Logo size={28} />
             <span style={{ color: "var(--text-white)", letterSpacing: "-0.03em" }}>GIGAOPS</span>
-            <span className="brand-badge">TESLA CASE STUDY</span>
           </div>
         </Link>
 
@@ -71,15 +86,31 @@ export const Navbar: React.FC = () => {
           })}
         </div>
 
-        <div className="nav-status" title={backendOnline ? "FastAPI Backend Online" : "FastAPI Backend Offline / Waking Up"}>
-          <span className={`status-dot ${backendOnline === false ? "offline" : ""}`} />
-          <span>
-            {backendOnline === null
-              ? "CONNECTING..."
-              : backendOnline
-              ? "BACKEND ONLINE"
-              : "OFFLINE / LOCAL"}
-          </span>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="theme-toggle-btn"
+            title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            aria-label="Toggle Light and Dark Mode"
+          >
+            {theme === "dark" ? (
+              <Sun size={18} style={{ color: "var(--accent-warn)" }} />
+            ) : (
+              <Moon size={18} style={{ color: "var(--cyber-cyan)" }} />
+            )}
+          </button>
+
+          <div className="nav-status" title={backendOnline ? "FastAPI Backend Online" : "FastAPI Backend Offline / Waking Up"}>
+            <span className={`status-dot ${backendOnline === false ? "offline" : ""}`} />
+            <span>
+              {backendOnline === null
+                ? "CONNECTING..."
+                : backendOnline
+                ? "BACKEND ONLINE"
+                : "OFFLINE / LOCAL"}
+            </span>
+          </div>
         </div>
       </nav>
     </header>

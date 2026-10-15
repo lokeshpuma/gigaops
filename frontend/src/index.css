@@ -55,6 +55,138 @@
   --shadow-glow-cyan: 0 0 20px rgba(0, 240, 255, 0.25);
 }
 
+[data-theme="light"] {
+  /* High-Contrast Modern Industrial Light Mode */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --bg-elevated: #e2e8f0;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-glow: rgba(2, 132, 199, 0.2);
+
+  --tesla-red: #d31a20;
+  --tesla-red-glow: rgba(211, 26, 32, 0.2);
+  --cyber-cyan: #0284c7;
+  --cyber-cyan-dim: #0369a1;
+  --cyber-cyan-glow: rgba(2, 132, 199, 0.2);
+  
+  --accent-pass: #16a34a;
+  --accent-pass-bg: rgba(22, 163, 74, 0.12);
+  --accent-reject: #dc2626;
+  --accent-reject-bg: rgba(220, 38, 38, 0.12);
+  --accent-warn: #d97706;
+  --accent-warn-bg: rgba(217, 119, 6, 0.12);
+  --accent-info: #2563eb;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-white: #0f172a;
+
+  --shadow-subtle: 0 4px 14px rgba(15, 23, 42, 0.06);
+  --shadow-glow-red: 0 0 16px rgba(211, 26, 32, 0.15);
+  --shadow-glow-cyan: 0 0 16px rgba(2, 132, 199, 0.15);
+}
+
+[data-theme="light"] body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: 
+    radial-gradient(circle at 50% 120px, rgba(211, 26, 32, 0.02) 0%, transparent 500px),
+    radial-gradient(circle at 85% 650px, rgba(2, 132, 199, 0.03) 0%, transparent 500px);
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(8, 9, 11, 0.9);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .app-header {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .hero-title {
+  background: linear-gradient(135deg, #0f172a 40%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .nav-item:hover {
+  color: var(--text-primary);
+  background: #f1f5f9;
+}
+
+[data-theme="light"] .nav-item.active {
+  color: var(--text-primary);
+  background: #ffffff;
+  border-color: var(--border-medium);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .demo-card:hover {
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-toggle-btn:focus,
+.theme-toggle-btn:focus-visible {
+  outline: none;
+  border-color: var(--border-medium);
+  box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.18);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-elevated);
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .theme-toggle-btn:focus,
+[data-theme="light"] .theme-toggle-btn:focus-visible {
+  outline: none;
+  border-color: var(--border-medium);
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.18);
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+  border-color: #cbd5e1;
+  background: #e2e8f0;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -69,8 +201,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 15% 20%, rgba(232, 33, 39, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 85% 80%, rgba(0, 240, 255, 0.04) 0%, transparent 45%);
+    radial-gradient(circle at 50% 120px, rgba(232, 33, 39, 0.035) 0%, transparent 550px),
+    radial-gradient(circle at 85% 650px, rgba(0, 240, 255, 0.03) 0%, transparent 500px);
 }
 
 a {
@@ -90,20 +222,15 @@ button {
    ========================================================================== */
 
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  background: rgba(8, 9, 11, 0.85);
-  border-bottom: 1px solid var(--border-subtle);
-  height: 72px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
   max-width: 1440px;
   margin: 0 auto;
+  background: transparent;
+  border-bottom: none;
 }
 
 .nav-brand {

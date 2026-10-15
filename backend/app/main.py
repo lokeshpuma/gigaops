@@ -1,7 +1,6 @@
 """
 GigaOps FastAPI Backend Service
-Autonomous Manufacturing Systems Demo Suite (Tesla Gigafactory Case Study)
-Group G9, 22RI751
+Autonomous Manufacturing Systems Demo Suite
 """
 
 import os
@@ -40,9 +39,7 @@ def root():
     return {
         "status": "online",
         "system": "GigaOps Autonomous Manufacturing Systems",
-        "course": "22RI751 - Autonomous Manufacturing Systems",
         "case_study": "Tesla Gigafactory Battery Cell & Intralogistics Architecture",
-        "group": "Group G9",
         "endpoints": {
             "health": "/api/health",
             "simulation_run": "/api/simulation/run",
